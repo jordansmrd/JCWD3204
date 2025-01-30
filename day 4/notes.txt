@@ -1,0 +1,6 @@
+// tsc -> typescript
+// ts-node --> buat jalanin typescript tanpa perlu compiled ke js
+// nodemon -> listen ke file
+
+// tsc --init --> init tsconfig
+// nodemmon namafile.ts
