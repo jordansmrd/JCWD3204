@@ -83,9 +83,99 @@ ex.sort(); // [1,10,2,21,3,9]
 console.log(ex[1]); //10
 
 // looping
+// callback function adalah function yang berada di dalam argument.
+// argument adalah value yang dipassing ke dalam parameter sebuah function
 
 //map
+//return dari map adalah sebuah array
+//return dari callback merupakan element yg disimpan di dalam return map
+//length array hasil return map. memiliki length yg sama dengan origin array
+
+const test_1 = [1, 2, 3, 4, 5];
+const test_2 = [6, 7, 8, 9, 10];
+
+const maptest3 = test_1.concat(test_2).map((v, i, arr) => {
+  return v + 1 + arr.length;
+});
+
+const hasil_map = numbers.map((v, i, array) => {
+  return v;
+});
+
+console.log(hasil_map, "ini hasil map");
+
 //filter
+//return dari filter adalah sebuah array
+//return dari callback adalah sebuah boolean
+
+const hasil_filter = numbers.filter((value, index, array) => {
+  // return true;
+  return value % 2 == 0;
+});
+
+console.log(hasil_filter, "ini hasil filter");
+
 //foreach
+//return dari foreach adalah void (tidak memiliki return)
+//return dari callback tidak akan mempengaruhi hasil return dari foreachnya
+let sum = 0;
+const filtered: Array<number> = [];
+const hasil_foreach = numbers.forEach((value, index, array) => {
+  // console.log(value, "index ke", index);
+  if (value % 2 == 0) filtered.push(value);
+  console.log("ini sum", sum, "ini index", index);
+
+  sum += index;
+});
+console.log(hasil_foreach, "ini hasil foreach");
+console.log(sum, "ini hasil sum");
+console.log(filtered, "ini filtered");
+
 //findIndex
+//return dari findIndex adalah sebuah number (nomor index)
+//return dari callbacknya adalah sebuah boolean
+//apabila return dari findIndex adalah -1. artinya index tidak ditemukan
+
+const hasil_findIndex = numbers.findIndex((value, index, array) => {
+  return value == 5;
+});
+
+const kumpulan_sepeda = [
+  {
+    name: "sepeda gunung",
+    price: 500000,
+  },
+  {
+    name: "sepeda roda tiga",
+    price: 200000,
+  },
+  {
+    name: "sepeda balap",
+    price: 700000,
+  },
+];
+
+console.log(hasil_findIndex, "ini hasil find index");
+console.log(numbers.indexOf(5), "ini menggunakan indexOf");
+
+console.log(
+  kumpulan_sepeda.indexOf({
+    name: "sepeda roda tiga",
+    price: 200000,
+  }),
+  "ini menggunakan indexOf dari kumpulan sepeda"
+);
+console.log(
+  kumpulan_sepeda.findIndex((v) => v.name == "sepeda roda tiga"),
+  "index dari sepeda roda 3"
+);
+
 //find
+//return dari find sebuah element
+//return dari callbacknya adalah boolean
+//pada saat hasil callbacknya false untuk semua looping. maka return dari find adalah undefined (element tidak ditemukan)
+const hasil_find = numbers.find((value, index, array) => {
+  return index == 10000;
+});
+
+console.log(hasil_find, "ini hasil find");
